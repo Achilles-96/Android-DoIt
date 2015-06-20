@@ -45,6 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/button"
         android:singleLine="true"
+        android:inputType="number"
         android:hint="enter id"/>
     <Button
         android:id="@+id/getbutton"
