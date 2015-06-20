@@ -10,12 +10,19 @@
         android:id="@+id/edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:nextFocusRight="@+id/edit_date"
+        android:nextFocusLeft="@+id/edit_date"
+        android:nextFocusUp="@+id/edit_date"
+        android:nextFocusDown="@+id/edit_date"
         android:hint="Edit Job"/>
     <EditText
         android:id="@+id/edit_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:inputType="number"
+        android:singleLine="true"
         android:hint="Enter No Of Days"/>
     <Button
         android:id="@+id/button"
@@ -37,6 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/button"
+        android:singleLine="true"
         android:hint="enter id"/>
     <Button
         android:id="@+id/getbutton"
