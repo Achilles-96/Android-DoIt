@@ -23,14 +23,13 @@ public class Alert extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alert);
-        databasehandler db=new databasehandler(this);
-        Log.d("inside:","alert");
-        ArrayList<name> list=db.listall();
-        int len=list.size();
-        TextView textView=(TextView)findViewById(R.id.alertme);
-        Log.d("inside:",textView.getText().toString());
-        if(len==0)
-        {
+        databasehandler db = new databasehandler(this);
+        Log.d("inside:", "alert");
+        ArrayList<name> list = db.listall();
+        int len = list.size();
+        TextView textView = (TextView) findViewById(R.id.alertme);
+        Log.d("inside:", textView.getText().toString());
+        if (len == 0) {
 
             textView.setTextSize(30);
             textView.setText("NO JOBS");
@@ -41,27 +40,26 @@ public class Alert extends ActionBarActivity {
         r.play();
         try {
             Thread.sleep(5000);
-        }catch (InterruptedException ex){
+        } catch (InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
         r.stop();
 
         textView.setTextSize(30);
         textView.setText("");
-        for(int i=0;i<len;i++)
-        {
-            String old=textView.getText().toString();
-            name Name=list.get(i);
-            Date date=new Date();
+        for (int i = 0; i < len; i++) {
+            String old = textView.getText().toString();
+            name Name = list.get(i);
+            Date date = new Date();
             String mystring = Name.getEnd_date();
-            Date date1=new Date();
+            Date date1 = new Date();
             try {
-               date1 = new SimpleDateFormat("yyyy - MM - dd \n HH - mm - ss", Locale.ENGLISH).parse(mystring);
-            }catch (ParseException e){
+                date1 = new SimpleDateFormat("yyyy - MM - dd \n HH - mm - ss", Locale.ENGLISH).parse(mystring);
+            } catch (ParseException e) {
                 e.printStackTrace();
             }
-            Log.d("inside:","lol");
-            if(date1.getTime()-date.getTime()>=0) {
+            Log.d("inside:", "lol");
+            if (date1.getTime() - date.getTime() >= 0) {
 
                 String new1 = Integer.toString(Name.getId());
                 new1 = new1 + " " + Name.getname() + " " + Name.getEnd_date() + "\n";

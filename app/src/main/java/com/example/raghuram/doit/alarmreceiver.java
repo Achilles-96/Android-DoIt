@@ -10,10 +10,10 @@ import android.widget.Toast;
  */
 public class alarmreceiver extends BroadcastReceiver {
     @Override
-    public void onReceive(Context context,Intent intent){
-        Intent intent1=new Intent(context,Alert.class);
+    public void onReceive(Context context, Intent intent) {
+        Intent intent1 = new Intent(context, Alert.class);
         intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent1);
-        Toast.makeText(context,"i am in",Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "i am in", Toast.LENGTH_SHORT).show();
     }
 }
