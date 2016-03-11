@@ -26,7 +26,7 @@ import java.util.Date;
 public class MainActivity extends ActionBarActivity {
 
     private int idcount = 1;
-    databasehandler db = new databasehandler(this);
+    databaseHandler db = new databaseHandler(this);
 
     private AlarmManager alarmManager;
     private PendingIntent pendingIntent;
@@ -116,7 +116,7 @@ public class MainActivity extends ActionBarActivity {
         Date newdate = cal.getTime();
         String timeStamp2 = new SimpleDateFormat("yyyy - MM - dd \n HH - mm - ss").format(newdate.getTime());
         Name.setname(a, timeStamp, timeStamp2);
-        db.addGoal(Name);
+        db.addNewGoal(Name);
 
         idcount++;
     }
@@ -125,7 +125,7 @@ public class MainActivity extends ActionBarActivity {
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.lister);
         linearLayout.removeAllViews();
         ((TextView) findViewById(R.id.showdate)).setText("");
-        name Name = db.getGoal(id);
+        name Name = db.getGoalFromDB(id);
         TextView textView2 = (TextView) findViewById(R.id.showdate);
         textView2.setTextSize(30);
         textView2.setText(Name.getdate() + "\n\n" + Name.getEnd_date());
@@ -136,7 +136,7 @@ public class MainActivity extends ActionBarActivity {
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.lister);
         linearLayout.removeAllViews();
         ((TextView) findViewById(R.id.showdate)).setText("");
-        ArrayList<name> list = db.listall();
+        ArrayList<name> list = db.listAllTasksFromDB();
         int len = list.size();
         if (len == 0) {
             TextView textView = (TextView) findViewById(R.id.showdate);
@@ -165,7 +165,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void clear(View view) {
-        db.clearit();
+        db.clearDB();
     }
 
     @Override

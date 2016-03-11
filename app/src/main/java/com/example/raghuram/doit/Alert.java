@@ -23,9 +23,9 @@ public class Alert extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alert);
-        databasehandler db = new databasehandler(this);
+        databaseHandler db = new databaseHandler(this);
         Log.d("inside:", "alert");
-        ArrayList<name> list = db.listall();
+        ArrayList<name> list = db.listAllTasksFromDB();
         int len = list.size();
         TextView textView = (TextView) findViewById(R.id.alertme);
         Log.d("inside:", textView.getText().toString());
